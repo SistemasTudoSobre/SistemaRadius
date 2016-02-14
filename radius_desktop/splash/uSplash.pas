@@ -1,4 +1,4 @@
-unit uSplash;
+unit uSplash; //Primeiro form visível para o usuario
 
 interface
 
