@@ -1,4 +1,4 @@
-unit uSplash;
+ unit uSplash;
 
 interface
 
@@ -75,7 +75,7 @@ begin
   Result := False;
   serial := StringReplace(serial, '-', '', [rfReplaceAll]);
   dataValidade := validarSerial(serial, cnpj);
-  if dataValidade <> 0 then
+  if dataValidade <> 0 then  //
     Result := dataValidade <= getDataHoje();
 end;
 
@@ -95,19 +95,18 @@ begin
 
   if verificarValidade(Trim(maskSerial.Text), buscarCNPJCliente()) then
   // Buscar cnpj do cliente
-  begin
-    ShowMessage('Serial não esperado!' + #13 +
-      'Por favor, entre em contato com o suporte.');
-    serialValido := False;
-    Exit;
-  end;
+    begin
+      ShowMessage('Serial não esperado!' + #13 +
+        'Por favor, entre em contato com o suporte.');
+      serialValido := False;
+      Exit;
+    end;
 
-  if True { isDebug() }
-  then { TODO -oJonathan -c : Criar configuração para determinar se cliente pode entrar sem vericar a internet 29/11/2015 23:06:42 }
-  begin
-    Entrar(serialValido);
-    Exit;
-  end;
+  if True { isDebug() } then { TODO -oJonathan -c : Criar configuração para determinar se cliente pode entrar sem vericar a internet 29/11/2015 23:06:42 }
+    begin
+      Entrar(serialValido);
+      Exit;
+    end;
 
   if verificarConexaoComInternet() then
     if getValidadeSistema(Trim(maskSerial.Text)) then
@@ -120,11 +119,11 @@ end;
 procedure TfrmSplash.FormCreate(Sender: TObject);
 begin
   if not fireBirdStarted() then
-  begin
-    ShowMessage('Não foi possivel encontrar gerenciador de banco de dados.' +
-      #13 + 'Por favor instale a versão mais recente do Firebird para seu sistema operacional.');
-    Application.Terminate;
-  end;
+    begin
+      ShowMessage('Não foi possivel encontrar gerenciador de banco de dados.' +
+        #13 + 'Por favor instale a versão mais recente do Firebird para seu sistema operacional.');
+      Application.Terminate;
+    end;
 end;
 
 procedure TfrmSplash.FormShow(Sender: TObject);
@@ -135,15 +134,15 @@ begin
   serialCadastrado := buscarSerialCliente();
 
   if serialCadastrado = '' then
-  begin
-    maskSerial.Visible := True;
-    bbVerificarLogin.Visible := True;
-  end
+    begin
+      maskSerial.Visible := True;
+      bbVerificarLogin.Visible := True;
+    end
   else
-  begin
-    maskSerial.Text := serialCadastrado;
-    bbVerificarLogin.Click;
-  end;
+    begin
+      maskSerial.Text := serialCadastrado;
+      bbVerificarLogin.Click;
+    end;
 
 end;
 
@@ -160,10 +159,10 @@ begin
   ProgressBar1.Position := ProgressBar1.Position + 1;
 
   if ProgressBar1.Position = ProgressBar1.Max then
-  begin
-    tmpProgresso.Enabled := False;
-    EntrarNoSistema(Sender);
-  end;
+    begin
+      tmpProgresso.Enabled := False;
+      EntrarNoSistema(Sender);
+    end;
 
 end;
 
