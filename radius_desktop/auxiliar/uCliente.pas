@@ -2,7 +2,7 @@ unit uCliente;
 
 interface
 
-uses System.SysUtils, Vcl.Forms; //
+uses System.SysUtils, Vcl.Forms;
 
 procedure adicionarCliente(nomeCliente, cnpj, responsavel, serial: string;
   nomeNovoUsuario: string = ''; senhaNovoUsuario: string = '';
