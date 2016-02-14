@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{760850BB-018B-4051-8A30-327708126765}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="radius_desktop\RadiusDesktop.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="radius_mobile\RadiusMobile.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RadiusDesktop">
+        <MSBuild Projects="radius_desktop\RadiusDesktop.dproj"/>
+    </Target>
+    <Target Name="RadiusDesktop:Clean">
+        <MSBuild Projects="radius_desktop\RadiusDesktop.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RadiusDesktop:Make">
+        <MSBuild Projects="radius_desktop\RadiusDesktop.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RadiusMobile">
+        <MSBuild Projects="radius_mobile\RadiusMobile.dproj"/>
+    </Target>
+    <Target Name="RadiusMobile:Clean">
+        <MSBuild Projects="radius_mobile\RadiusMobile.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RadiusMobile:Make">
+        <MSBuild Projects="radius_mobile\RadiusMobile.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RadiusDesktop;RadiusMobile"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RadiusDesktop:Clean;RadiusMobile:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RadiusDesktop:Make;RadiusMobile:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
