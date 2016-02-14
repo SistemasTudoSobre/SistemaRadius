@@ -1,13 +1,12 @@
-unit uSplash; //Primeiro form visível para o usuario
+unit uSplash;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.ComCtrls,
-  Vcl.Mask, Vcl.Buttons, Winapi.ShellAPI, Vcl.Menus, Vcl.Imaging.pngimage;
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Mask, Vcl.Buttons,
+  Winapi.ShellAPI, Vcl.Menus, Vcl.Imaging.pngimage;
 
 type
   TfrmSplash = class(TForm)
