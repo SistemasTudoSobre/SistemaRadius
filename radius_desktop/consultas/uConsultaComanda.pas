@@ -1,4 +1,4 @@
-unit uConsultaComanda; {}
+unit uConsultaComanda;
 
 interface
 
