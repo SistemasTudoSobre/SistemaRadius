@@ -54,7 +54,8 @@ begin
   try
     FDConnexao.Connected := True;
   except
-    ShowMessage('Erro ao se conectar com base de dados!');
+    ShowMessage('Erro ao se conectar com base de dados!' + #13 +
+                'Por favor, verifique o arquivo de configuração: Radius.ini ');
     Application.Terminate;
   end;
 
