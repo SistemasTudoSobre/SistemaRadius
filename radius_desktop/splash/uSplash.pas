@@ -75,7 +75,7 @@ begin
   Result := False;
   serial := StringReplace(serial, '-', '', [rfReplaceAll]);
   dataValidade := validarSerial(serial, cnpj);
-  if dataValidade <> 0 then  ////
+  if dataValidade <> 0 then  ////aa
     Result := dataValidade <= getDataHoje();
 end;
 
