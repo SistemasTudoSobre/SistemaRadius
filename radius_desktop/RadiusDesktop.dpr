@@ -50,13 +50,16 @@ uses
   uValidarSistema in 'validacao\uValidarSistema.pas' {frmValidarSistema},
   uValidaSerial in 'validacao\uValidaSerial.pas',
   uFirebird in 'firebird\uFirebird.pas',
-  uPrincipal in 'principal\uPrincipal.pas' {frmPrincipal};
+  uPrincipal in 'principal\uPrincipal.pas' {frmPrincipal},
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Windows10');
   Application.CreateForm(TfrmDmPrincipal, frmDmPrincipal);
   Application.CreateForm(TdmRelatorioFast, dmRelatorioFast);
   Application.CreateForm(TfrmSplash, frmSplash);

@@ -2,7 +2,7 @@ object fmrLogin: TfmrLogin
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  ClientHeight = 122
+  ClientHeight = 344
   ClientWidth = 284
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,6 +12,7 @@ object fmrLogin: TfmrLogin
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object edtUsuario: TEdit
@@ -200,5 +201,14 @@ object fmrLogin: TfmrLogin
     NumGlyphs = 2
     TabOrder = 3
     OnClick = bbCancelaClick
+  end
+  object cbVisual: TComboBox
+    Left = 8
+    Top = 119
+    Width = 264
+    Height = 21
+    TabOrder = 4
+    TextHint = 'Escolha o visual de sua prefer'#234'ncia'
+    OnChange = cbVisualChange
   end
 end
