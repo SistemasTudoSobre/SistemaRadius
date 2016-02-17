@@ -83,7 +83,7 @@ procedure TfrmSplash.bbVerificarLoginClick(Sender: TObject);
 var
   serialCliente: string;
 begin
-  setDataVerdadeira(); //Faz tratamento inicial para segurança da data real
+  setDataVerdadeira(); //Faz tratamento inicial para segurança de data real.
 
   serialCliente := buscarSerialCliente();
 
