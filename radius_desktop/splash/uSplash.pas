@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Mask, Vcl.Buttons,
-  Winapi.ShellAPI, Vcl.Menus, Vcl.Imaging.pngimage;
+  Winapi.ShellAPI, Vcl.Menus, Vcl.Imaging.pngimage, Vcl.Themes;
 
 type
   TfrmSplash = class(TForm)
@@ -83,7 +83,7 @@ procedure TfrmSplash.bbVerificarLoginClick(Sender: TObject);
 var
   serialCliente: string;
 begin
-  setDataVerdadeira();
+  setDataVerdadeira(); //FAz tratamento inicial para segurança da data real
 
   serialCliente := buscarSerialCliente();
 
@@ -102,7 +102,7 @@ begin
       Exit;
     end;
 
-  if True { isDebug() } then { TODO -oJonathan -c : Criar configuração para determinar se cliente pode entrar sem vericar a internet 29/11/2015 23:06:42 }
+  if isDebug() then { TODO -oJonathan -c : Criar configuração para determinar se cliente pode entrar sem vericar a internet 29/11/2015 23:06:42 }
     begin
       Entrar(serialValido);
       Exit;

@@ -19,7 +19,7 @@ object frmPrincipal: TfrmPrincipal
   PixelsPerInch = 96
   TextHeight = 13
   object Splitter1: TSplitter
-    Left = 233
+    Left = 0
     Top = 29
     Height = 406
     ExplicitLeft = 256
@@ -50,7 +50,7 @@ object frmPrincipal: TfrmPrincipal
       end>
   end
   object CategoryPanelGroup1: TCategoryPanelGroup
-    Left = 0
+    Left = 3
     Top = 29
     Width = 233
     Height = 406
@@ -61,13 +61,36 @@ object frmPrincipal: TfrmPrincipal
     HeaderFont.Name = 'Tahoma'
     HeaderFont.Style = []
     TabOrder = 1
+    ExplicitLeft = 1
+    ExplicitTop = 35
     object CategoryPanel10: TCategoryPanel
       Top = 150
-      Height = 30
       Caption = 'Mercados'
-      Collapsed = True
       Locked = True
       TabOrder = 0
+      object Button1: TButton
+        Left = 143
+        Top = 8
+        Width = 75
+        Height = 25
+        Caption = 'Button1'
+        TabOrder = 0
+        OnClick = Button1Click
+      end
+      object Edit1: TEdit
+        Left = 16
+        Top = 8
+        Width = 121
+        Height = 21
+        TabOrder = 1
+        Text = 'Edit1'
+      end
+      object loading: TActivityIndicator
+        Left = 16
+        Top = 35
+        FrameDelay = 40
+        IndicatorSize = aisXLarge
+      end
     end
     object CategoryPanel2: TCategoryPanel
       Top = 120
@@ -193,8 +216,8 @@ object frmPrincipal: TfrmPrincipal
     Width = 719
     Height = 406
     Align = alClient
-    Caption = 'Panel1'
     TabOrder = 2
+    Visible = False
     object wbTelaInicial: TWebBrowser
       AlignWithMargins = True
       Left = 4
@@ -203,6 +226,7 @@ object frmPrincipal: TfrmPrincipal
       Height = 398
       Align = alClient
       TabOrder = 0
+      OnNavigateComplete2 = wbTelaInicialNavigateComplete2
       ExplicitLeft = 96
       ExplicitTop = 80
       ExplicitWidth = 300
@@ -229,7 +253,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 248
     Top = 384
     Bitmap = {
-      494C010104000800680010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C0101040008006C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

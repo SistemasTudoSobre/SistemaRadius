@@ -4,11 +4,10 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ComCtrls, Vcl.StdCtrls,
-  Winapi.ShellAPI,
-  Vcl.ImgList, Vcl.ExtCtrls, Vcl.Imaging.pngimage, Vcl.Buttons, Vcl.OleCtrls,
-  SHDocVw, System.ImageList {, cefvcl};
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus,
+  Vcl.ComCtrls, Vcl.StdCtrls, Winapi.ShellAPI, Vcl.ImgList, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage, Vcl.Buttons, Vcl.OleCtrls, SHDocVw, System.ImageList,
+  Vcl.Themes, Vcl.WinXCtrls;
 
 type
   TfrmPrincipal = class(TForm)
@@ -31,6 +30,9 @@ type
     N1: TMenuItem;
     Sair1: TMenuItem;
     wbTelaInicial: TWebBrowser;
+    Button1: TButton;
+    Edit1: TEdit;
+    loading: TActivityIndicator;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Sair1Click(Sender: TObject);
     procedure Suporte1Click(Sender: TObject);
@@ -43,6 +45,8 @@ type
     procedure BitBtn1Click(Sender: TObject);
     procedure Abrir1Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure wbTelaInicialNavigateComplete2(ASender: TObject;
+      const pDisp: IDispatch; const [Ref] URL: OleVariant);
   private
     procedure SolicitarSuporte;
     procedure EncerrarSuporte;
@@ -117,6 +121,13 @@ begin
   verificarAtualizacao(True);
 end;
 
+procedure TfrmPrincipal.wbTelaInicialNavigateComplete2(ASender: TObject;
+  const pDisp: IDispatch; const [Ref] URL: OleVariant);
+begin
+  loading.Animate := False;
+  Panel1.Visible  := True;
+end;
+
 procedure TfrmPrincipal.WebBrouwer1Click(Sender: TObject);
 begin
   TfrmNavegacao.abrirTelaNavegacao(Sender);
@@ -150,7 +161,7 @@ end;
 
 procedure TfrmPrincipal.Button1Click(Sender: TObject);
 begin
-  SolicitarSuporte();
+   TStyleManager.SetStyle(edit1.Text);
 end;
 
 procedure TfrmPrincipal.DetranEmpresas1Click(Sender: TObject);
@@ -183,6 +194,8 @@ end;
 procedure TfrmPrincipal.FormShow(Sender: TObject);
 begin
    wbTelaInicial.Navigate(RADIUS_SUB_DOMINIO); //'http://www.embarcadero.com'
+   Panel1.Visible   := False;
+   loading.Animate  := True;
 end;
 
 procedure TfrmPrincipal.Sair1Click(Sender: TObject);
