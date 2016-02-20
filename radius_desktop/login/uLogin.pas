@@ -14,12 +14,9 @@ type
     edtSenha: TEdit;
     bbEntrar: TBitBtn;
     bbCancela: TBitBtn;
-    cbVisual: TComboBox;
     procedure bbEntrarClick(Sender: TObject);
     procedure bbCancelaClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-    procedure cbVisualChange(Sender: TObject);
   private
     { Private declarations }
     FSenhaCorreta: Boolean;
@@ -53,20 +50,6 @@ end;
 procedure TfmrLogin.Button1Click(Sender: TObject);
 begin
   bbCancela.Enabled := not bbCancela.Enabled
-end;
-
-procedure TfmrLogin.cbVisualChange(Sender: TObject);
-begin
-  TStyleManager.SetStyle(cbVisual.Text);
-end;
-
-procedure TfmrLogin.FormCreate(Sender: TObject);
-var
-  StyleName: string;
-begin
-  for StyleName in TStyleManager.StyleNames do
-    cbVisual.Items.Add(StyleName);
-  cbVisual.ItemIndex := cbVisual.Items.IndexOf(TStyleManager.ActiveStyle.Name);
 end;
 
 procedure TfmrLogin.bbCancelaClick(Sender: TObject);

@@ -59,7 +59,6 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Windows10');
   Application.CreateForm(TfrmDmPrincipal, frmDmPrincipal);
   Application.CreateForm(TdmRelatorioFast, dmRelatorioFast);
   Application.CreateForm(TfrmSplash, frmSplash);

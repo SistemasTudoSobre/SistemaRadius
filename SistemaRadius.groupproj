@@ -9,9 +9,6 @@
         <Projects Include="radius_mobile\RadiusMobile.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\..\..\..\Public\Documents\Embarcadero\Studio\17.0\Samples\Object Pascal\VCL\ActivityIndicator\ActivityIndicator.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -38,23 +35,14 @@
     <Target Name="RadiusMobile:Make">
         <MSBuild Projects="radius_mobile\RadiusMobile.dproj" Targets="Make"/>
     </Target>
-    <Target Name="ActivityIndicator">
-        <MSBuild Projects="..\..\..\..\Public\Documents\Embarcadero\Studio\17.0\Samples\Object Pascal\VCL\ActivityIndicator\ActivityIndicator.dproj"/>
-    </Target>
-    <Target Name="ActivityIndicator:Clean">
-        <MSBuild Projects="..\..\..\..\Public\Documents\Embarcadero\Studio\17.0\Samples\Object Pascal\VCL\ActivityIndicator\ActivityIndicator.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="ActivityIndicator:Make">
-        <MSBuild Projects="..\..\..\..\Public\Documents\Embarcadero\Studio\17.0\Samples\Object Pascal\VCL\ActivityIndicator\ActivityIndicator.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="RadiusDesktop;RadiusMobile;ActivityIndicator"/>
+        <CallTarget Targets="RadiusDesktop;RadiusMobile"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="RadiusDesktop:Clean;RadiusMobile:Clean;ActivityIndicator:Clean"/>
+        <CallTarget Targets="RadiusDesktop:Clean;RadiusMobile:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="RadiusDesktop:Make;RadiusMobile:Make;ActivityIndicator:Make"/>
+        <CallTarget Targets="RadiusDesktop:Make;RadiusMobile:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
