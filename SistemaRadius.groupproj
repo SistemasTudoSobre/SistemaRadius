@@ -9,6 +9,9 @@
         <Projects Include="radius_mobile\RadiusMobile.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="radius_desktop\tdd\TesteRadiusDesktop.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="RadiusMobile:Make">
         <MSBuild Projects="radius_mobile\RadiusMobile.dproj" Targets="Make"/>
     </Target>
+    <Target Name="TesteRadiusDesktop">
+        <MSBuild Projects="radius_desktop\tdd\TesteRadiusDesktop.dproj"/>
+    </Target>
+    <Target Name="TesteRadiusDesktop:Clean">
+        <MSBuild Projects="radius_desktop\tdd\TesteRadiusDesktop.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TesteRadiusDesktop:Make">
+        <MSBuild Projects="radius_desktop\tdd\TesteRadiusDesktop.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="RadiusDesktop;RadiusMobile"/>
+        <CallTarget Targets="RadiusDesktop;RadiusMobile;TesteRadiusDesktop"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="RadiusDesktop:Clean;RadiusMobile:Clean"/>
+        <CallTarget Targets="RadiusDesktop:Clean;RadiusMobile:Clean;TesteRadiusDesktop:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="RadiusDesktop:Make;RadiusMobile:Make"/>
+        <CallTarget Targets="RadiusDesktop:Make;RadiusMobile:Make;TesteRadiusDesktop:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
