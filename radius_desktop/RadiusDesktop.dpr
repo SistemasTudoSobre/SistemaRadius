@@ -54,7 +54,8 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   uGerarSerial in 'keygen\uGerarSerial.pas',
-  uKeyGen in 'keygen\uKeyGen.pas' {frmKeyGen};
+  uKeyGen in 'keygen\uKeyGen.pas' {frmKeyGen},
+  uInternet in 'internet\uInternet.pas';
 
 {$R *.res}
 
