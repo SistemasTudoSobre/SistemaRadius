@@ -52,7 +52,9 @@ uses
   uFirebird in 'firebird\uFirebird.pas',
   uPrincipal in 'principal\uPrincipal.pas' {frmPrincipal},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  uGerarSerial in 'keygen\uGerarSerial.pas',
+  uKeyGen in 'keygen\uKeyGen.pas' {frmKeyGen};
 
 {$R *.res}
 
