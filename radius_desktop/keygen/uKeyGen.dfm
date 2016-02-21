@@ -1,9 +1,9 @@
 inherited frmKeyGen: TfrmKeyGen
   Caption = 'KeyGen'
-  ClientHeight = 163
-  ClientWidth = 580
-  ExplicitWidth = 596
-  ExplicitHeight = 202
+  ClientHeight = 154
+  ClientWidth = 439
+  ExplicitWidth = 455
+  ExplicitHeight = 193
   PixelsPerInch = 96
   TextHeight = 13
   object lblResultado: TLabel

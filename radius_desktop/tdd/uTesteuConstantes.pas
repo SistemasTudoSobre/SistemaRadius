@@ -43,7 +43,7 @@ type
 
 implementation
 
-uses uInternet;
+uses internet;
 
 procedure TTesteuConstantes.Setup;
 begin

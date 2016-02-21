@@ -14,7 +14,17 @@ uses
   uTesteuConstantes in 'uTesteuConstantes.pas',
   uConstantes in '..\constantes\uConstantes.pas',
   dmPrincipal in '..\dataModule\dmPrincipal.pas' {frmDmPrincipal: TDataModule},
-  uInternet in '..\internet\uInternet.pas';
+  uInternet in '..\internet\uInternet.pas',
+  uTestedmPrincipal in 'uTestedmPrincipal.pas',
+  uTesteuKeyGen in 'uTesteuKeyGen.pas',
+  uKeyGen in '..\keygen\uKeyGen.pas' {frmKeyGen},
+  uMaster in '..\master\uMaster.pas' {frmMaster},
+  uGerarSerial in '..\keygen\uGerarSerial.pas',
+  uString in '..\auxiliar\uString.pas',
+  uValidaSerial in '..\validacao\uValidaSerial.pas',
+  uAuxValidacao in '..\validacao\uAuxValidacao.pas',
+  uData in '..\auxiliar\uData.pas',
+  internet in '..\webservice\internet.pas';
 
 var
   runner : ITestRunner;
