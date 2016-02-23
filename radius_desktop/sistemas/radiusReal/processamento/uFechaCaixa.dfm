@@ -2,9 +2,9 @@ inherited frmFechamentoCaixa: TfrmFechamentoCaixa
   BorderStyle = bsDialog
   Caption = 'Fechamento de Caixa'
   ClientHeight = 154
-  ClientWidth = 508
+  ClientWidth = 224
   OnShow = FormShow
-  ExplicitWidth = 514
+  ExplicitWidth = 230
   ExplicitHeight = 183
   PixelsPerInch = 96
   TextHeight = 13
@@ -70,7 +70,7 @@ inherited frmFechamentoCaixa: TfrmFechamentoCaixa
   object Button1: TButton
     Left = 72
     Top = 116
-    Width = 425
+    Width = 136
     Height = 25
     Caption = 'Fechar Caixa'
     TabOrder = 3
@@ -94,30 +94,6 @@ inherited frmFechamentoCaixa: TfrmFechamentoCaixa
     Alignment = taRightJustify
     Color = clWhite
     TabOrder = 5
-  end
-  object Memo1: TMemo
-    Left = 214
-    Top = 8
-    Width = 283
-    Height = 48
-    TabStop = False
-    Lines.Strings = (
-      'Total comandas em aberto.........: 2'
-      'Total comandas pagas..............: 123'
-      'Total comandas cancelas...........: 3')
-    TabOrder = 6
-  end
-  object Memo2: TMemo
-    Left = 214
-    Top = 62
-    Width = 283
-    Height = 48
-    TabStop = False
-    Lines.Strings = (
-      'Valor total comandas em aberto...: R$ 20,00'
-      'Valor total comandas pagas........: R$ 20,00'
-      'Valor total comandas cancelas.....: R$ 20,00')
-    TabOrder = 7
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer

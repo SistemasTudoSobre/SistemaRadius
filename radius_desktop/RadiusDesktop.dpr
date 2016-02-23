@@ -55,7 +55,8 @@ uses
   Vcl.Styles,
   uGerarSerial in 'keygen\uGerarSerial.pas',
   uKeyGen in 'keygen\uKeyGen.pas' {frmKeyGen},
-  uInternet in 'internet\uInternet.pas';
+  uInternet in 'internet\uInternet.pas',
+  uConsultasMesa in 'consultas\uConsultasMesa.pas';
 
 {$R *.res}
 

@@ -8,8 +8,12 @@ function ultimoCodigo(conexao: TFDConnection; tabela, campo: string;
   condicao: string = ''): string;
 function buscarDado(conexao: TFDConnection; tabela: string; campoChave: string;
   campoDesejado: string; value: string; condicao: string = ''): string;
+function CreateQuery(sql:string):TFDQuery; overload;
+function CreateQuery(sql:string; conexao:TFDConnection):TFDQuery; overload;
 
 implementation
+
+uses uConstantes;
 
 function ultimoCodigo(conexao: TFDConnection; tabela, campo: string;
   condicao: string = ''): string;
@@ -67,6 +71,27 @@ begin
     FreeAndNil(dsConsulta)
   end;
 
+end;
+
+function CreateQuery(sql:string):TFDQuery;
+begin
+  try
+    Result := CreateQuery(sql, conexaoSistema);
+  except
+
+  end;
+end;
+
+function CreateQuery(sql:string; conexao:TFDConnection):TFDQuery;
+begin
+  Result  := TFDQuery.Create(Application);
+  try
+    Result.Connection := conexao;
+    Result.SQL.Text := sql;
+    Result.Active := True;
+  except
+
+  end;
 end;
 
 end.

@@ -61,36 +61,13 @@ object frmPrincipal: TfrmPrincipal
     HeaderFont.Name = 'Tahoma'
     HeaderFont.Style = []
     TabOrder = 1
-    ExplicitLeft = 1
-    ExplicitTop = 35
     object CategoryPanel10: TCategoryPanel
       Top = 150
+      Height = 30
       Caption = 'Mercados'
+      Collapsed = True
       Locked = True
       TabOrder = 0
-      object Button1: TButton
-        Left = 143
-        Top = 8
-        Width = 75
-        Height = 25
-        Caption = 'Button1'
-        TabOrder = 0
-        OnClick = Button1Click
-      end
-      object Edit1: TEdit
-        Left = 16
-        Top = 8
-        Width = 121
-        Height = 21
-        TabOrder = 1
-        Text = 'Edit1'
-      end
-      object loading: TActivityIndicator
-        Left = 16
-        Top = 35
-        FrameDelay = 40
-        IndicatorSize = aisXLarge
-      end
     end
     object CategoryPanel2: TCategoryPanel
       Top = 120
@@ -210,33 +187,21 @@ object frmPrincipal: TfrmPrincipal
       TabOrder = 5
     end
   end
-  object Panel1: TPanel
+  object pnlBrowser: TPanel
     Left = 236
     Top = 29
     Width = 719
     Height = 406
     Align = alClient
     TabOrder = 2
-    Visible = False
-    object wbTelaInicial: TWebBrowser
-      AlignWithMargins = True
-      Left = 4
-      Top = 4
-      Width = 711
-      Height = 398
+    object Chromium: TChromium
+      Left = 1
+      Top = 1
+      Width = 717
+      Height = 404
       Align = alClient
+      DefaultUrl = 'about:blank'
       TabOrder = 0
-      OnNavigateComplete2 = wbTelaInicialNavigateComplete2
-      ExplicitLeft = 96
-      ExplicitTop = 80
-      ExplicitWidth = 300
-      ExplicitHeight = 150
-      ControlData = {
-        4C0000007C490000222900000000000000000000000000000000000000000000
-        000000004C000000000000000000000001000000E0D057007335CF11AE690800
-        2B2E12620E000000000000004C0000000114020000000000C000000000000046
-        8000000000000000000000000000000000000000000000000000000000000000
-        00000000000000000100000000000000000000000000000000000000}
     end
   end
   object pnlCabecalho: TPanel
@@ -253,7 +218,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 248
     Top = 384
     Bitmap = {
-      494C0101040008006C0010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010104000800740010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

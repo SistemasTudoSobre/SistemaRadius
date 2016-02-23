@@ -20,8 +20,6 @@ type
     Timer1: TTimer;
     Edit6: TEdit;
     Label5: TLabel;
-    Memo1: TMemo;
-    Memo2: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -41,7 +39,8 @@ type
 
 implementation
 
-uses uConsultaCaixa, uConstantes, uUsuario, uUpdate, uLogin, uConsulta, uData;
+uses uConsultaCaixa, uConstantes, uUsuario, uUpdate, uLogin, uConsulta, uData,
+  uConsultasMesa;
 
 var
   frmFechamentoCaixa: TfrmFechamentoCaixa;
@@ -67,6 +66,7 @@ begin
   frmFechamentoCaixa.Show;
 end;
 
+
 procedure TfrmFechamentoCaixa.Button1Click(Sender: TObject);
 var
   codCaixaAberto: string;
@@ -75,12 +75,12 @@ begin
   inherited;
   codCaixaAberto := buscarCaixaAberto(conexaoSistema, getCodigoUsuario());
   if TfmrLogin.logarUsuario(Sender, False, getUsuario()) <> '' then
-  begin
-    valorTratado := StringReplace(Edit6.Text, '.', ',', [rfReplaceAll]);
-    AtualizarValorRecebido(codCaixaAberto, StrToCurr(valorTratado));
-    fecharCaixa(codCaixaAberto);
-    Close;
-  end;
+    begin
+      valorTratado := StringReplace(Edit6.Text, '.', ',', [rfReplaceAll]);
+      AtualizarValorRecebido(codCaixaAberto, StrToCurr(valorTratado));
+      fecharCaixa(codCaixaAberto);
+      Close;
+    end;
 end;
 
 function TfrmFechamentoCaixa.fecharCaixa(codigoCaixa: string): Boolean;

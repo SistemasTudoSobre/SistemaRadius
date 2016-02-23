@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus,
   Vcl.ComCtrls, Vcl.StdCtrls, Winapi.ShellAPI, Vcl.ImgList, Vcl.ExtCtrls,
   Vcl.Imaging.pngimage, Vcl.Buttons, Vcl.OleCtrls, SHDocVw, System.ImageList,
-  Vcl.Themes, Vcl.WinXCtrls;
+  Vcl.Themes, Vcl.WinXCtrls, cefvcl;
 
 type
   TfrmPrincipal = class(TForm)
@@ -20,7 +20,7 @@ type
     CategoryPanel8: TCategoryPanel;
     CategoryPanel9: TCategoryPanel;
     CategoryPanel10: TCategoryPanel;
-    Panel1: TPanel;
+    pnlBrowser: TPanel;
     pnlCabecalho: TPanel;
     Splitter1: TSplitter;
     BitBtn1: TBitBtn;
@@ -29,10 +29,7 @@ type
     Abrir1: TMenuItem;
     N1: TMenuItem;
     Sair1: TMenuItem;
-    wbTelaInicial: TWebBrowser;
-    Button1: TButton;
-    Edit1: TEdit;
-    loading: TActivityIndicator;
+    Chromium: TChromium;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Sair1Click(Sender: TObject);
     procedure Suporte1Click(Sender: TObject);
@@ -44,9 +41,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure Abrir1Click(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
-    procedure wbTelaInicialNavigateComplete2(ASender: TObject;
-      const pDisp: IDispatch; const [Ref] URL: OleVariant);
   private
     procedure SolicitarSuporte;
     procedure EncerrarSuporte;
@@ -121,13 +115,6 @@ begin
   verificarAtualizacao(True);
 end;
 
-procedure TfrmPrincipal.wbTelaInicialNavigateComplete2(ASender: TObject;
-  const pDisp: IDispatch; const [Ref] URL: OleVariant);
-begin
-  loading.Animate := False;
-  Panel1.Visible  := True;
-end;
-
 procedure TfrmPrincipal.WebBrouwer1Click(Sender: TObject);
 begin
   TfrmNavegacao.abrirTelaNavegacao(Sender);
@@ -159,11 +146,6 @@ begin
   Sleep(10000);
 end;
 
-procedure TfrmPrincipal.Button1Click(Sender: TObject);
-begin
-   TStyleManager.SetStyle(edit1.Text);
-end;
-
 procedure TfrmPrincipal.DetranEmpresas1Click(Sender: TObject);
 begin
   TfrmNavegacao.abrirTelaNavegacao(Sender, 'https://www.detrannet.empresas.mg.gov.br/');
@@ -193,9 +175,8 @@ end;
 
 procedure TfrmPrincipal.FormShow(Sender: TObject);
 begin
-   wbTelaInicial.Navigate(RADIUS_SUB_DOMINIO); //'http://www.embarcadero.com'
-   Panel1.Visible   := False;
-   loading.Animate  := True;
+   Chromium.Load(RADIUS_SUB_DOMINIO);
+
 end;
 
 procedure TfrmPrincipal.Sair1Click(Sender: TObject);
