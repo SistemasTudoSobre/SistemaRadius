@@ -16,6 +16,7 @@ const
   RADIUS_ARQUIVO_WEB_SUPORTE = 'suporte.php';
   RADIUS_WEB_SERVICE_SUPORTE = RADIUS_URL_SUPORTE + '/' + RADIUS_ARQUIVO_WEB_SUPORTE;
   RADIUS_BUILD = 'RadiusDesktop';
+  CONSTANTE_NOVA = 'GITHUB';
 
 var
   conexaoSistema: TFDConnection;
