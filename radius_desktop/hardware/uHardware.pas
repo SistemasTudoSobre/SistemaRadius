@@ -9,6 +9,7 @@ function getMacAddress: string;
 implementation
 
 //Rotina baixo nível para capturar mac da placa de rede
+//Não muda com formatação
 function getMacAddress: string;
 var
   Lib: Cardinal;
